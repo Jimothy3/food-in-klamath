@@ -1,0 +1,10 @@
+/* Name: James Holland */
+/* File style.css */
+@font-face {
+	font-family: NotoSans;
+	src: url("./fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
+}
+body {
+	font-family: "NotoSans", sans-serif; /* fallback font is sans-serif */
+	background-color: lime;
+}
