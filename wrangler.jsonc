@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "food-in-klamath",
+  "compatibility_date": "2026-06-20",
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "site-code"
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
+}
