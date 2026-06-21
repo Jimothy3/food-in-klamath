@@ -44,3 +44,4 @@ function ParseCSV(path, arr) {
 const restaurants = [];
 const path = '../data/restaurants.csv';
 ParseCSV(path, restaurants);
+document.getElementById("restaurants").innerText = "Hello, World!";
