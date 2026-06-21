@@ -11,7 +11,7 @@ class Restaurant {
 	}
 };
 
-function ParseCSV(path, arr) {
+async function ParseCSV(path, arr) {
 	const response = await fetch(path);
 	if (!response.ok) throw new Error("http error");
 	
@@ -37,11 +37,10 @@ function ParseCSV(path, arr) {
 	}
 	
 	if (arr.length > 0) {
-		document.getElementById("restaurants").innerText = arr[0];
+		document.getElementById("restaurants").innerText = arr[0].restaurantTitle;
 	}
 }
 
 const restaurants = [];
 const path = '../data/restaurants.csv';
 ParseCSV(path, restaurants);
-document.getElementById("restaurants").innerText = "Hello, World!";
