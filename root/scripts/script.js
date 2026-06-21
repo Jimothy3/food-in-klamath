@@ -23,7 +23,8 @@ async function ParseCSV(path, arr) {
 	
 	// iterate through list of lines and tokenize each word
 	for (let lineIndex = 1; lineIndex < lines.length; ++lineIndex) {
-		const tokens      = lines[lineIndex].split(/[",]/);
+		let cleanLine	  = lines[lineIndex].replaceAll('"', ''); // removing quotes
+		const tokens      = lines[lineIndex].split(",");		  // tokenizing using commmas
 		
 		let name 	      = tokens[0];
 		let genre 	      = tokens[1];
