@@ -67,7 +67,10 @@ function instantiateRestaurants(linesOfTextArr) {
 }
 
 function instantiateMap() {
-	var map = L.map('map').setView([51.505, -0.09], 13);
+	const KLAMATH_LATITUDE  = 42.224869;
+	const KLAMATH_LONGITUDE = -121.78167;
+	
+	var map = L.map('map').setView([KLAMATH_LATITUDE, KLAMATH_LONGITUDE], 13);
 	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
