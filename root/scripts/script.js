@@ -1,6 +1,7 @@
 /* File: script.js */
 /* Author: James Holland */
 /* Note: index.html references this file with type="module". */
+
 const CONFIG = {
 	path: '../data/restaurants.csv' // csv located in data folder
 }
@@ -57,12 +58,20 @@ function instantiateRestaurants(linesOfTextArr) {
 		const atmosphere = tokens[2];
 		const driveThru  = tokens[3] === 'true'; // turns the string into a boolean
 		const address    = tokens[4];
-		
+			
 		const newRestaurant = new Restaurant(name, genre, atmosphere, driveThru, address);
-		
+			
 		restaurantArr.push(newRestaurant);
 	}
 	return restaurantArr;
+}
+
+function instantiateMap() {
+	var map = L.map('map').setView([51.505, -0.09], 13);
+	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 }
 
 /* MAIN */
@@ -78,4 +87,6 @@ try {
 } catch (err) {
 	document.getElementById("restaurants").innerText = "There was an error processing the data of the restaurants... Sorry!";
 }
+
+instantiateMap();
 /* !MAIN */

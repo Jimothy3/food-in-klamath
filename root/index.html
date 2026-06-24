@@ -1,13 +1,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
 <html>
 <head>
 	<title>Food in Klamath</title>
 	<link href="css/style.css" type="text/css" rel="stylesheet"/>
-	<script type="module" src="scripts/script.js"></script>
 </head>
 <body>
 	<h1>Hello, World! Welcome to my first website!   </h1>
+	<div id="map" width="600" height="500" style="border:1px solid #000000;"></div>
 	
 	<p>This site will:								 </p>
 	<ul>
@@ -17,7 +21,10 @@
 		<li>Filters for the suggestions				    </li>
 		<li>And More! Just you wait!				  	</li>
 	</ul>
+	
 	<p id="restaurants">Placeholder...				 </p>
 	<a href="contact.html">Contact Us!				 </a>
+	
+	<script type="module" src="scripts/script.js"></script>
 </body>
 </html>
