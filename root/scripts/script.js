@@ -70,11 +70,20 @@ function instantiateMap() {
 	const KLAMATH_LATITUDE  = 42.224869;
 	const KLAMATH_LONGITUDE = -121.78167;
 	
-	var map = L.map('map').setView([KLAMATH_LATITUDE, KLAMATH_LONGITUDE], 13);
+	var southWest  = L.latLng(42.1490493, -121.8596316),
+	    northEast  = L.latLng(42.3167969, -121.5638341),
+	    myBounds   = L.latLngBounds(southWest, northEast);
+	
+	var map = L.map('map', {
+		maxBounds: myBounds,
+		maxBoundsViscosity: 1.0
+	}).setView([KLAMATH_LATITUDE, KLAMATH_LONGITUDE], 13);
+	
 	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+		maxZoom: 20,
+		minZoom: 12,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
 }
 
 /* MAIN */
