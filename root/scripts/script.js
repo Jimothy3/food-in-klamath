@@ -93,11 +93,11 @@ try {
 	const restaurants = instantiateRestaurants(linesOfText); // returns array of all restaurants
 
 	if (restaurants.length > 0) {
-			document.getElementById("restaurants").innerText = restaurants[0].restaurantTitle;
+			document.getElementById("restaurant").innerText = restaurants[0].restaurantTitle;
 	}
 	
 } catch (err) {
-	document.getElementById("restaurants").innerText = "There was an error processing the data of the restaurants... Sorry!";
+	document.getElementById("restaurant").innerText = "There was an error processing the data of the restaurants... Sorry!";
 }
 
 instantiateMap();
