@@ -89,22 +89,22 @@ function instantiateMap() {
 	}).addTo(map);
 }
 
-function randomButtonLogic(arr) {
-	const randIndex = Math.floor(Math.random() * arr.length);
-	if (arr.length > randIndex) {
-			document.getElementById("restaurant").innerText = arr[randIndex].restaurantTitle;
-	}
+function randomButtonLogic() {
+	const randIndex = Math.floor(Math.random() * restaurants.length);
+	document.getElementById("restaurant").innerText = restaurants[randIndex].restaurantTitle;
 }
+
+let restaurants = [];
 
 /* MAIN */
 try {
 	const response    = await initFetch(CONFIG.path);		 // async func to ensure path was correctly fetched
 	const linesOfText = await parseCSV(response); 		     // chunks the entire text into an array of lines of text
-	const restaurants = instantiateRestaurants(linesOfText); // returns array of all restaurants
+	restaurants = instantiateRestaurants(linesOfText); // returns array of all restaurants
 	instantiateMap();
 	
 	const randButton = document.getElementById("randomButton");
-	randButton.addEventListener("click", randomButtonLogic(restaurants));
+	randButton.addEventListener("click", randomButtonLogic);
 } catch (err) {
 	document.getElementById("restaurant").innerText = "There was an error processing the data of the restaurants... Sorry!";
 }
