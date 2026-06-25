@@ -92,6 +92,7 @@ function instantiateMap() {
 function randomButtonLogic() {
 	const randIndex = Math.floor(Math.random() * restaurants.length);
 	document.getElementById("restaurant").innerText = restaurants[randIndex].restaurantTitle;
+	document.getElementById("address").innerText = restaurants[randIndex].address;
 }
 
 let restaurants = [];
