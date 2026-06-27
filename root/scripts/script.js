@@ -89,10 +89,18 @@ function instantiateMap() {
 	}).addTo(map);
 }
 
+// Function Name: randomButtonLogic
+// Parameters   : None
+// Reason       : Logic for the 'take me to a random restaurant' button
 function randomButtonLogic() {
 	const randIndex = Math.floor(Math.random() * restaurants.length);
-	document.getElementById("restaurant").innerText = restaurants[randIndex].restaurantTitle;
-	document.getElementById("address").innerText = restaurants[randIndex].address;
+	const title = restaurants[randIndex].restaurantTitle;
+	const address = restaurants[randIndex].address;
+	const encodedAddress = encodeURIComponent(address);
+	const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodedAddress;
+	document.getElementById("restaurant").innerText = title;
+	document.getElementById("address").innerText = address;
+	document.getElementById("address").href = mapUrl;
 }
 
 let restaurants = [];
