@@ -95,7 +95,7 @@ function instantiateMap() {
 function randomButtonLogic() {
 	const randIndex = Math.floor(Math.random() * restaurants.length);
 	const title = restaurants[randIndex].restaurantTitle;
-	const address = restaurants[randIndex].address;
+	const address = restaurants[randIndex].restaurantTitle;
 	const encodedAddress = encodeURIComponent(address);
 	const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodedAddress;
 	document.getElementById("restaurant").innerText = title;
