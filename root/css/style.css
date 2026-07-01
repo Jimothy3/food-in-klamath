@@ -15,7 +15,7 @@
 	position: 		  fixed; /* won't move on scroll */
 	z-index:  		  1;
 	top: 	  		  0;
-	right: 	  		  0;
+	left: 	  		  0;
 	background-color: slategray;
 	overflow-x: 	  hidden;
 	padding-top: 	  20px;
@@ -36,8 +36,8 @@
 
 /* main design */
 .main {
-	margin-right: 160px;
-	padding: 10px 0px;
+	margin-left: 160px;
+	padding: 0px 10px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
