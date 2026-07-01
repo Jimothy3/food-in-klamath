@@ -3,10 +3,57 @@
 
 @font-face {
 	font-family: NotoSans;
-	src: url("./fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
+	src: url("../fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
 }
 
-/* Got CSS from https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp */
+#map {
+	display: block;
+	width:   600px;
+	height:  500px;	
+}
+
+body {
+	font-family: 	  "NotoSans", sans-serif; /* fallback font is sans-serif */
+	background-color: #ffde22; /* yellow */
+	padding-left: 160px;
+	padding-bottom: 10px;
+	text-align:   left;
+}
+
+.rand-button {
+	background-color: #ff8928; /* orange */
+	border:			  #ff8928; /* orange */
+	color: 			  black;
+	width: 			  300px;
+	height: 		  100px;	
+	text-align: 	  center;
+	font-size: 		  16px;
+	cursor: 		  pointer;
+}
+
+.rand-button:hover {
+	background-color: #ffde22; /* yellow */
+	border:			  1px solid #ff8928; /* orange */
+	color: 			  #ff8928;
+	width: 			  300px;
+	height: 		  100px;	
+	text-align: 	  center;
+	font-size: 		  16px;
+	cursor: 		  pointer;
+}
+
+.logo-button {
+	background-color: inherit;
+	border: transparent;
+	cursor: pointer;
+	transition: transform .7s ease-in-out;
+	padding-left: 25px !important;
+}
+
+.logo-button:hover {
+	transform: rotate(360deg);
+}
+/* Got nav menu CSS from https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp */
 
 /* sidebar menu */
 .sidenav {
@@ -16,13 +63,14 @@
 	z-index:  		  1;
 	top: 	  		  0;
 	left: 	  		  0;
-	background-color: slategray;
+	background-color: #ff8928; /* orange */
 	overflow-x: 	  hidden;
 	padding-top: 	  20px;
 }
 /* navigation menu links */
 .sidenav a {
-	padding: 		 6px 8px 6px 16px;
+	padding: 		 6px 10px 6px 6px;
+	padding-left:    15px;
 	text-decoration: none;
 	font-size: 		 25px;
 	color: 			 black;
@@ -34,49 +82,8 @@
 	color: lime;
 }
 
-/* main design */
-.main {
-	margin-left: 160px;
-	padding: 0px 10px;
-}
-
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
-}
-
-.flex-container { /* forces children in container to be side-by-side */
-	display: 	 	 flex;
-	gap: 	     	 15px;
-	justify-content: center;
-}
-
-.left-column { /* stacks button and text next to map */
-	display: 		flex;
-	flex-direction: column;
-	gap: 			10px;
-}
-
-#map {
-	display: 	   block;
-	width: 		   600px;
-	height:        500px;	
-}
-
-body {
-	font-family: "NotoSans", sans-serif; /* fallback font is sans-serif */
-	background-color: SkyBlue; 
-	text-align: center;
-}
-
-.button {
-	background-color: slategray;
-	border:1px solid #000000;
-	color: white;
-	width: 300px;
-	height: 100px;	
-	text-align: center;
-	font-size: 16px;
-	cursor: pointer;
 }

@@ -23,24 +23,31 @@
 	
 	<!-- Side Navigation -->
 	<div class="sidenav">
+		<a href="https://FoodInKlamath.com">
+			<button class="logo-button">
+				<img src="images/burger_icon_large.png"/>
+			</button>
+		</a>
 		<a href="contact.html">Contact Us</a>
 	</div>
 	
+	<!--
+	title up top
+	map in middle
+	button adjacent (right) to map
+	
+	? filters in sidebar ?
+	-->
+	
 	<!-- Main Stuff -->
-	<div class="main">
-		<h1>Where should you go for lunch today?</h1>
-		<div class="flex-container">
-			<div id="map" width="100%" style="border:1px solid #000000;"></div>
-			<div class="left-column">
-				<button id="randomButton" class="button">Pick Random Restaurant For Me!</button>
-				<h3 id="restaurant">Recommendation Will Appear Here...</h3>
-				
-				<a href="#" target="_blank" id="address" rel="noopener noreferrer">
+	<div id="map" width="100%" style="border:1px solid #ff8928;"></div> <br>
+	<button id="randomButton" class="rand-button"><b>Pick Random Restaurant For Me!</b></button>
+	
+	<h3 id="restaurant">Recommendation Will Appear Here...</h3>	
+	
+	<a href="#" target="_blank" id="address" rel="noopener noreferrer">
 					Address Will Appear Here...		     
-				</a>
-			</div>
-		</div>
-	</div>
+	</a>
 	
 	<script type="module" src="scripts/script.js"></script>
 </body>
