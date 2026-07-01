@@ -6,6 +6,46 @@
 	src: url("./fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
 }
 
+/* Got CSS from https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp */
+
+/* sidebar menu */
+.sidenav {
+	height:   		  100%;
+	width: 	  		  160px;
+	position: 		  fixed; /* won't move on scroll */
+	z-index:  		  1;
+	top: 	  		  0;
+	right: 	  		  0;
+	background-color: slategray;
+	overflow-x: 	  hidden;
+	padding-top: 	  20px;
+}
+/* navigation menu links */
+.sidenav a {
+	padding: 		 6px 8px 6px 16px;
+	text-decoration: none;
+	font-size: 		 25px;
+	color: 			 black;
+	display: 		 block;
+}
+
+/* mouse hover on sidenav bar*/
+.sidenav a:hover {
+	color: lime;
+}
+
+/* main design */
+.main {
+	margin-right: 160px;
+	padding: 10px 0px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
 .flex-container { /* forces children in container to be side-by-side */
 	display: 	 	 flex;
 	gap: 	     	 15px;
@@ -27,6 +67,7 @@
 body {
 	font-family: "NotoSans", sans-serif; /* fallback font is sans-serif */
 	background-color: SkyBlue; 
+	text-align: center;
 }
 
 .button {

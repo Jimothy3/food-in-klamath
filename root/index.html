@@ -20,21 +20,27 @@
 	<link href="css/style.css" type="text/css" rel="stylesheet"/>
 </head>
 <body>
-	<h1>Where should you go for lunch today?</h1>
-	<div class="flex-container">
-		<div id="map" width="100%" style="border:1px solid #000000;"></div>
-		<div class="left-column">
-			<button id="randomButton" class="button">Pick Random Restaurant For Me!</button>
-			<h3 id="restaurant">Recommendation Will Appear Here...</h3>
-			
-			<a href="https://google.com" target="_blank" id="address" rel="noopener noreferrer">
-				Address Will Appear Here...		     
-			</a>
+	
+	<!-- Side Navigation -->
+	<div class="sidenav">
+		<a href="contact.html">Contact Us</a>
+	</div>
+	
+	<!-- Main Stuff -->
+	<div class="main">
+		<h1>Where should you go for lunch today?</h1>
+		<div class="flex-container">
+			<div id="map" width="100%" style="border:1px solid #000000;"></div>
+			<div class="left-column">
+				<button id="randomButton" class="button">Pick Random Restaurant For Me!</button>
+				<h3 id="restaurant">Recommendation Will Appear Here...</h3>
+				
+				<a href="#" target="_blank" id="address" rel="noopener noreferrer">
+					Address Will Appear Here...		     
+				</a>
+			</div>
 		</div>
 	</div>
-
-	
-	<a href="contact.html">Contact Us!				 </a>
 	
 	<script type="module" src="scripts/script.js"></script>
 </body>

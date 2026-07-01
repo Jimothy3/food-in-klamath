@@ -56,7 +56,7 @@ function instantiateRestaurants(linesOfTextArr) {
 		const name 	     = tokens[0];
 		const genre 	 = tokens[1];
 		const atmosphere = tokens[2];
-		const driveThru  = tokens[3] === 'true'; // turns the string into a boolean
+		const driveThru  = tokens[3] === 'TRUE'; // turns the string into a boolean
 		const address    = tokens[4];
 			
 		const newRestaurant = new Restaurant(name, genre, atmosphere, driveThru, address);
@@ -95,7 +95,7 @@ function instantiateMap() {
 function randomButtonLogic() {
 	const randIndex = Math.floor(Math.random() * restaurants.length);
 	const title = restaurants[randIndex].restaurantTitle;
-	const address = restaurants[randIndex].restaurantTitle;
+	const address = restaurants[randIndex].address;
 	const encodedAddress = encodeURIComponent(address);
 	const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodedAddress;
 	document.getElementById("restaurant").innerText = title;
