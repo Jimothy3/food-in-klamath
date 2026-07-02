@@ -79,7 +79,7 @@ body {
 
 /* mouse hover on sidenav bar*/
 .sidenav a:hover {
-	color: lime;
+	color: #ffde22; /* yellow */
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
