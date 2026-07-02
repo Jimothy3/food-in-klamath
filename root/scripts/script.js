@@ -97,7 +97,7 @@ function randomButtonLogic() {
 	const title = restaurants[randIndex].restaurantTitle;
 	const address = restaurants[randIndex].address + ' Klamath Falls, OR'; // address Klamath Falls, OR
 	const encodedAddress = encodeURIComponent(address);					   // encoding address into readable URL for Google Maps
-	const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodedAddress;
+	const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodedAddress; // new URL
 	document.getElementById("restaurant").innerText = title;
 	document.getElementById("address").innerText = address;
 	document.getElementById("address").href = mapUrl;
