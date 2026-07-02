@@ -1,9 +1,9 @@
 /* Name: James Holland */
-/* File style.css */
+/* File: style.css */
 
 @font-face {
 	font-family: NotoSans;
-	src: url("../fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
+	src: 		 url("../fonts/NotoSans-VariableFont_wdth,wght.ttf") format("truetype");
 }
 
 #map {
@@ -15,15 +15,15 @@
 body {
 	font-family: 	  "NotoSans", sans-serif; /* fallback font is sans-serif */
 	background-color: #ffde22; /* yellow */
-	padding-left: 160px;
-	padding-bottom: 10px;
-	text-align:   left;
+	padding-left: 	  160px;
+	padding-bottom:   10px;
+	text-align:   	  left;
 }
 
 .container {
-	display: grid;
+	display: 			   grid;
 	grid-template-columns: auto auto auto;
-	gap: 10px
+	gap: 				   10px
 }
 
 .rand-button {
@@ -50,17 +50,16 @@ body {
 
 .logo-button {
 	background-color: inherit;
-	border: transparent;
-	cursor: pointer;
-	transition: transform .7s ease-in-out;
-	padding-left: 25px !important;
+	border: 		  transparent;
+	cursor: 		  pointer;
+	transition: 	  transform .7s ease-in-out;
+	padding-left: 	  25px !important;
 }
 
 .logo-button:hover {
 	transform: rotate(360deg);
 }
 /* Got nav menu CSS from https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp */
-
 /* sidebar menu */
 .sidenav {
 	height:   		  100%;

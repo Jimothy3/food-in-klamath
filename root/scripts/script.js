@@ -103,17 +103,16 @@ function randomButtonLogic() {
 	document.getElementById("address").href = mapUrl;
 }
 
-let restaurants = [];
-
 /* MAIN */
+let restaurants = [];
+instantiateMap();
+const randButton = document.getElementById("randomButton");
+randButton.addEventListener("click", randomButtonLogic);
+
 try {
 	const response    = await initFetch(CONFIG.path);		 // async func to ensure path was correctly fetched
 	const linesOfText = await parseCSV(response); 		     // chunks the entire text into an array of lines of text
 	restaurants = instantiateRestaurants(linesOfText); // returns array of all restaurants
-	instantiateMap();
-	
-	const randButton = document.getElementById("randomButton");
-	randButton.addEventListener("click", randomButtonLogic);
 } catch (err) {
 	document.getElementById("restaurant").innerText = "There was an error processing the data of the restaurants... Sorry!";
 }
