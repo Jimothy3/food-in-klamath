@@ -20,6 +20,12 @@ body {
 	text-align:   left;
 }
 
+.container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 10px
+}
+
 .rand-button {
 	background-color: #ff8928; /* orange */
 	border:			  #ff8928;
