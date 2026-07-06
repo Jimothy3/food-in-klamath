@@ -17,7 +17,7 @@ class NavBar extends HTMLElement {
 			<a href="index.html">Home</a>
 			<a href="contact.html">Contact Us</a>
 			<a href="sponsor.html">Sponsor Us</a>
-			<a href="nonexistent.html">Wrong Info...</a>
+			<a href="report-error.html">Wrong Info...</a>
 			<a href="help.html">Help Me!</a>
 		</div>
 		`;
