@@ -10,12 +10,15 @@ const CONFIG = {
 // Parameters   : restaurantTitle (str), foodType (str), atmosphere (str), containsDriveThru (bool), address (str)
 // Reason       : simplifies array-creation process in which the array stores Restaurant objects
 class Restaurant {
-	constructor(restaurantTitle, foodType, atmosphere, containsDriveThru, address) {
+	constructor(restaurantTitle, foodType, atmosphere, containsDriveThru, address, openHour, closeHour, daysClosed) {
 		this.restaurantTitle   = restaurantTitle;
 		this.foodType          = foodType;
 		this.atmosphere        = atmosphere;
 		this.containsDriveThru = containsDriveThru;
 		this.address 		   = address;
+		this.openHour		   = openHour;
+		this.closeHour		   = closeHour;
+		this.daysClosed		   = daysClosed;
 	}
 }
 
@@ -48,7 +51,7 @@ function instantiateRestaurants(linesOfTextArr) {
 	const restaurantArr = [];
 	
 	// iterate through list of lines and tokenize each word
-	/* Index starts at 1 to ignore header line */
+	// Index starts at 1 to ignore header line
 	for (let lineIndex = 1; lineIndex < linesOfTextArr.length; ++lineIndex) {
 		const cleanLine	 = linesOfTextArr[lineIndex].replaceAll('"', ''); // removing quotes
 		const tokens     = cleanLine.split(",");		  		  		  // tokenizing using commmas
@@ -58,8 +61,11 @@ function instantiateRestaurants(linesOfTextArr) {
 		const atmosphere = tokens[2];
 		const driveThru  = tokens[3] === 'TRUE'; // turns the string into a boolean
 		const address    = tokens[4];
+		const openHour   = tokens[5];
+		const closeHour  = tokens[6];
+		const daysClosed = tokens[7];
 			
-		const newRestaurant = new Restaurant(name, genre, atmosphere, driveThru, address);
+		const newRestaurant = new Restaurant(name, genre, atmosphere, driveThru, address, openHour, closeHour, daysClosed);
 			
 		restaurantArr.push(newRestaurant);
 	}
@@ -95,20 +101,43 @@ function instantiateMap() {
 function randomButtonLogic() {
 	const randIndex = Math.floor(Math.random() * restaurants.length);
 	const title = restaurants[randIndex].restaurantTitle;
-	const address = restaurants[randIndex].address + ' Klamath Falls, OR'; // address Klamath Falls, OR
+	const address = restaurants[randIndex].address + ', Klamath Falls, OR'; // address Klamath Falls, OR
 	const encodedAddress = encodeURIComponent(address);					   // encoding address into readable URL for Google Maps
-	const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodedAddress; // new URL part 2
+	const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodedAddress;
 	document.getElementById("restaurant").innerText = title;
 	document.getElementById("address").innerText = address;
 	document.getElementById("address").href = mapUrl;
 }
 
+// Function Name: restaurantIsOpen
+// Parameters   : Selected restaurant in array (store: Restaurant)
+// Reason       : The bare minimum check is to ensure the restaurant suggested is open currently
+function restaurantIsOpen(store) {
+	let isOpen = true;
+	const d = new Date();
+	
+	var klamathFallsTime = new Intl.DateTimeFormat("en-US", {
+		dateStyle: "short",
+		timeStyle: "short",
+		timeZone: "America/Los_Angeles"
+	}).format(d);
+	
+	document.getElementById("address").innerText = klamathFallsTime;
+	
+	return isOpen;
+}
+
+function timeIsWithinWindow(currentTime, startTime, endTime) {
+	
+}
+
 /* MAIN */
 let restaurants = [];
 instantiateMap();
+
 const randButton = document.getElementById("randomButton");
 randButton.addEventListener("click", randomButtonLogic);
-
+restaurantIsOpen("bob");
 try {
 	const response    = await initFetch(CONFIG.path);		 // async func to ensure path was correctly fetched
 	const linesOfText = await parseCSV(response); 		     // chunks the entire text into an array of lines of text
@@ -116,4 +145,5 @@ try {
 } catch (err) {
 	document.getElementById("restaurant").innerText = "There was an error processing the data of the restaurants... Sorry!";
 }
+
 /* !MAIN */
