@@ -9,6 +9,9 @@ class NavBar extends HTMLElement {
 		this.innerHTML = 
 		`
 		<div class="sidenav">
+			<button class="collapse-button">
+				<img src="images/collapse_icon.png"/>
+			</button>
 			<a href="https://FoodInKlamath.com">
 				<button class="logo-button">
 					<img src="images/burger_icon_large.png"/>
