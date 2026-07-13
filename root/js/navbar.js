@@ -8,16 +8,15 @@ class NavBar extends HTMLElement {
 	connectedCallback() {
 		this.innerHTML = 
 		`
+			<a href="https://FoodInKlamath.com">
+				<button class="logo-button">
+					<img src="images/burger_icon_large.png"/>
+				</button>
+			</a>
+			
 			<aside>
 				<nav>
 					<ul>
-						<li>
-							<a href="https://FoodInKlamath.com">
-								<button class="logo-button">
-									<img src="images/burger_icon_large.png"/>
-								</button>
-							</a>
-						</li>
 						<li>
 							<a href="index.html">
 								<i class="bx bx-home"></i>

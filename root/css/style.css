@@ -53,7 +53,7 @@ body {
 	cursor: 		  pointer;
 }
 
-.logo-button {
+.logo {
 	max-width: 100%;
 	background-color: inherit;
 	border: 		  transparent;
@@ -61,7 +61,7 @@ body {
 	transition: 	  transform .7s ease-in-out;
 }
 
-.logo-button:hover {
+.logo:hover {
 	transform: rotate(360deg);
 }
 
