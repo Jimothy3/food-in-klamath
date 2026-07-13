@@ -53,12 +53,26 @@ body {
 	cursor: 		  pointer;
 }
 
+.logo-link {
+	display: block;
+	width: 100%;
+	padding: 0;
+	text-align: center;
+}
+
 .logo {
-	max-width: 100%;
 	background-color: inherit;
 	border: 		  transparent;
 	cursor: 		  pointer;
 	transition: 	  transform .7s ease-in-out;
+	margin-left:	  0;
+	display:		  inline-block;
+}
+
+.logo img {
+	width: 32px;
+	height: 32px;
+	display: block;
 }
 
 .logo:hover {

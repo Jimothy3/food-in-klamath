@@ -12,7 +12,7 @@ class NavBar extends HTMLElement {
 				<nav>
 					<ul>
 						<li>
-							<a href="https://FoodInKlamath.com">
+							<a href="https://FoodInKlamath.com" class="logo-link">
 								<button class="logo">
 									<img src="images/burger_icon_large.png"/>
 								</button>
