@@ -11,14 +11,16 @@
 	display: block;
 	width:   600px;
 	height:  500px;	
+	z-index: 0;
 }
 
 body {
+	--sb-width: 	  5rem;
 	font-family: 	  "NotoSans", sans-serif; /* fallback font is sans-serif */
+	font-size:		  16px;
+	line-height:	  1.7;
+	color:			  #333;
 	background-color: #ffde22; /* yellow */
-	padding-left: 	  160px;
-	padding-bottom:   10px;
-	text-align:   	  left;
 }
 
 .container {
@@ -51,54 +53,89 @@ body {
 	cursor: 		  pointer;
 }
 
-.collapse-button {
-	visibility: hidden;
-	background-color: inherit;
-	border: 		  none;
-	color:			  black;
-	width:			  40px;
-	height:			  30px;
-	cursor:			  pointer;
-}
-
 .logo-button {
 	max-width: 100%;
 	background-color: inherit;
 	border: 		  transparent;
 	cursor: 		  pointer;
 	transition: 	  transform .7s ease-in-out;
-	padding-left: 	  25px !important;
 }
 
 .logo-button:hover {
 	transform: rotate(360deg);
 }
-/* Got nav menu CSS from https://www.w3schools.com/howto/howto_css_fixed_sidebar.asp */
-/* sidebar menu */
-.sidenav {
-	max-width: 100%;
-	height:   		  100%;
-	width: 	  		  160px;
-	position: 		  fixed; /* won't move on scroll */
-	z-index:  		  1;
-	top: 	  		  0;
-	left: 	  		  0;
-	background-color: #ff8928; /* orange */
-	overflow-x: 	  hidden;
-	padding-top: 	  20px;
-}
-/* navigation menu links */
-.sidenav a {
-	max-width: 100%;
-	padding: 		 6px 10px 6px 6px;
-	padding-left:    15px;
-	text-decoration: none;
-	font-size: 		 25px;
-	color: 			 black;
-	display: 		 block;
+
+aside {
+	z-index: 1;
+	position: fixed;
+	inset: 0 auto 0 0;
+	padding: 1rem;
+	width: var(--sidebar-width); /* Uses the changing width variable */
+	background-image: linear-gradient(#ff8928, #ffde22, #ff8928);
+	transition: width 0.5s ease-in-out; /* Smooth slide animation */
 }
 
-/* mouse hover on sidenav bar*/
-.sidenav a:hover {
-	color: #ffde22; /* yellow */
+nav {
+	height: 100%;
+}
+
+nav ul {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	list-style: none;
+	display: flex;
+	flex-flow: column;
+	gap: 0.25rem;
+}
+
+nav li:last-child {
+	margin-top: auto;
+}
+
+nav a {
+	display: flex;
+	text-align: center;
+	align-items: center;
+	gap: 0.625rem;
+	padding: 0.625rem;
+	font-size: 1.25rem;
+	line-height: 1;
+	color: black;
+	text-decoration: none;
+	border-radius: 0.375rem;
+	transition:
+		background-color 0.5s ease-in-out,
+		color 0.5 ease-in-out;
+}
+
+nav a span {
+	font-size: 0.875rem;
+	opacity: 0;
+	visibility: hidden;
+	text-align: center;
+	align-items: center;
+}
+
+nav a.active,
+nav a:hover,
+nav a:focus-visible {
+	outline: none;
+	color: #ff8928;
+	background-color: #ffde22;
+}
+
+/* Update your aside layout to use the custom element variable */
+nav-bar {
+	--sidebar-width: 40px;
+}
+
+nav-bar.expanded {
+	--sidebar-width: 200px; /* Expands the bar */
+}
+
+/* When the navbar expands, make the text visible */
+nav-bar.expanded nav a span {
+	opacity: 1;
+	visibility: visible;
 }

@@ -8,15 +8,14 @@ class NavBar extends HTMLElement {
 	connectedCallback() {
 		this.innerHTML = 
 		`
-		<body>
 			<aside>
 				<nav>
 					<ul>
 						<li>
 							<a href="https://FoodInKlamath.com">
-								<span class="logo-button">
+								<button class="logo-button">
 									<img src="images/burger_icon_large.png"/>
-								</span>
+								</button>
 							</a>
 						</li>
 						<li>
@@ -49,16 +48,24 @@ class NavBar extends HTMLElement {
 								<span>Sponsor Us</span>
 							</a>
 						</li>
+						<li>
+							<a href="#" data-toggle="navbar">
+								<i class="bx bx-menu"></i>
+							</a>
+						</li>
 					</ul>
 				</nav>
 			</aside>
-		</body>
-		<div class="sidenav">
-			<button class="collapse-button">
-				<img src="images/collapse_icon.png"/>
-			</button>
-		</div>
 		`;
+		
+		// Find the menu button inside this component
+		const toggleBtn = this.querySelector('[data-toggle="navbar"]');
+		
+		// When clicked, toggle the 'expanded' class on the <nav-bar> itself
+		toggleBtn.addEventListener('click', (event) => {
+			event.preventDefault();
+			this.classList.toggle('expanded');
+		});
 	}
 }
 
