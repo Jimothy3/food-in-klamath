@@ -14,11 +14,29 @@
 	<!-- acknowledgements: https://www.youtube.com/watch?v=fIR3isyFV8s -->
 	<link href='https://unpkg.com/boxicons@latest/css/boxicons.min.css' rel='stylesheet'>
 	
+	<!-- sweetalert2 assets -->
+	<!-- acknowledgements: https://sweetalert2.github.io/#download -->
+	<link href="https://jsdelivr.net" rel="stylesheet">
+	<script src="https://jsdelivr.net"></script>
 </head>
 <body>
 	<!-- Side Navigation -->
 	<nav-bar></nav-bar>
+	<div class="dialogue-container">
+		<h1>Error Submission Form</h1>
+		<form>
+			<label for="error-type">Select Error Type</label>
+			<select id="error-type" name="error-type">
+				<option value="web-bug">			  Website Bug				</option>
+				<option value="store-misinformation"> Restaurant Misinformation </option>
+				<option value="misc-bug">			  Other						</option>
+			</select>
+		</form>
+			<textarea id="bug-textbox" placeholder="Please explain the error here..." form="text"></textarea>
+		<button id="bug-submission">Submit Report!</button>
+	</div>
 	
 	<script type="module" src="js/navbar.js"></script>
+	<script type="module" src="js/bug-submission.js"></script>
 </body>
 </html>

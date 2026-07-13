@@ -27,6 +27,66 @@ body {
 body:has(nav-bar.expanded) {
 	--navbar-width: 250px;
 }
+
+.dialogue-container {
+	max-width:   100%;
+	margin-left: var(--navbar-width);
+	transition:	 margin-left 0.5s ease-in-out;
+}
+
+.dialogue-container h1 {
+	font-size:  50px;
+	text-align: center;
+}
+
+.dialogue-container form {
+	font-size:  50px;
+	text-align: center;
+}
+
+.dialogue-container select {
+	vertical-align: middle;
+	border-radius: 100px;
+	border: solid 1px black;
+	background-color: #ff8928;
+	width: 260px;
+	height: 60px;
+	font-size:  20px;
+	text-align: center;
+}
+
+.dialogue-container option {
+	background-color: #ff8928;
+}
+
+.dialogue-container textarea {
+	font-family: 'Consolas';
+	font-size: 20px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: White;
+	width: 800px;
+	height: 400px;
+}
+
+.dialogue-container button {
+	font-size: 40px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10px;
+	background-color: #ff8928;
+	width: 800px;
+	height: 100px;
+}
+
+.dialogue-container button:hover {
+	background-color: #ffde22;
+	border: solid 1px #ff8928;
+	color: #ff8928;
+}
+
 .container {
 	max-width: 			   100%;
 	display: 			   grid;
@@ -67,7 +127,7 @@ body:has(nav-bar.expanded) {
 }
 
 .logo {
-	background-color: inherit;
+	background-color: transparent;
 	border: 		  transparent;
 	cursor: 		  pointer;
 	transition: 	  transform .7s ease-in-out;
