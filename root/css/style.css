@@ -15,6 +15,7 @@
 }
 
 body {
+	--navbar-width:   80px;
 	--sb-width: 	  5rem;
 	font-family: 	  "NotoSans", sans-serif; /* fallback font is sans-serif */
 	font-size:		  16px;
@@ -23,11 +24,16 @@ body {
 	background-color: #ffde22; /* yellow */
 }
 
+body:has(nav-bar.expanded) {
+	--navbar-width: 250px;
+}
 .container {
-	max-width: 100%;
+	max-width: 			   100%;
 	display: 			   grid;
 	grid-template-columns: auto auto auto;
-	gap: 				   10px
+	gap: 				   10px;
+	margin-left:		   var(--navbar-width);
+	transition:			   margin-left 0.5s ease-in-out;
 }
 
 .rand-button {
