@@ -27,7 +27,7 @@ class NavBar extends HTMLElement {
 						</li>
 						<li>
 							<a href="contact.html">
-								<i class="bx bx-headphone-mic"></i>
+								<i class="bx bx-phone"></i>
 								<span>Contact Us</span>
 							</a>
 						</li>
@@ -45,7 +45,7 @@ class NavBar extends HTMLElement {
 						</li>
 						<li>
 							<a href="sponsor.html">
-								<i class="bx bx-piggy-bank"></i>
+								<i class="bx bx-dollar"></i>
 								<span>Sponsor Us</span>
 							</a>
 						</li>
