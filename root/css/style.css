@@ -28,6 +28,30 @@ body:has(nav-bar.expanded) {
 	--navbar-width: 250px;
 }
 
+.help-div {
+	grid-template-columns: auto auto;
+	display: block;
+	gap: 10px;
+}
+
+.help-div p {
+	text-align: center;
+	font-size: 20px;
+}
+
+@media screen and (max-width: 600px) {
+	.dialogue-container textarea { 
+		width: 280px    !important;
+		height: 100px   !important;
+	}
+	
+	.dialogue-container button {
+		width: 280px    !important;
+		height: 50px    !important;
+		font-size: 15px !important;
+	}
+}
+
 .dialogue-container {
 	max-width:   100%;
 	margin-left: var(--navbar-width);
@@ -70,18 +94,6 @@ body:has(nav-bar.expanded) {
 	height: 400px;
 }
 
-@media screen and (max-width: 600px) {
-	.dialogue-container textarea {
-		width: 280px  !important;
-		height: 100px !important;
-	}
-	.dialogue-container button {
-		width: 280px !important;
-		height: 50px !important;
-		font-size: 15px !important;
-	}
-}
-
 .dialogue-container button {
 	font-size: 40px;
 	display: block;
@@ -97,6 +109,14 @@ body:has(nav-bar.expanded) {
 	background-color: #ffde22;
 	border: solid 1px #ff8928;
 	color: #ff8928;
+}
+
+.dialogue-container img {
+	width:  50%;
+	height: 50%;
+	border: solid 1px black;
+	margin: auto;
+	display: block;	
 }
 
 .container {
