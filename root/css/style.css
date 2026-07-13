@@ -70,6 +70,18 @@ body:has(nav-bar.expanded) {
 	height: 400px;
 }
 
+@media screen and (max-width: 600px) {
+	.dialogue-container textarea {
+		width: 280px  !important;
+		height: 100px !important;
+	}
+	.dialogue-container button {
+		width: 280px !important;
+		height: 50px !important;
+		font-size: 15px !important;
+	}
+}
+
 .dialogue-container button {
 	font-size: 40px;
 	display: block;
