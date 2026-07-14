@@ -99,14 +99,20 @@ function instantiateMap() {
 // Parameters   : None
 // Reason       : Logic for the 'take me to a random restaurant' button
 function randomButtonLogic() {
-	const randIndex = Math.floor(Math.random() * restaurants.length);
-	const title = restaurants[randIndex].restaurantTitle;
-	const address = restaurants[randIndex].address + ', Klamath Falls, OR'; // address Klamath Falls, OR
-	const encodedAddress = encodeURIComponent(address);					   // encoding address into readable URL for Google Maps
-	const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodedAddress;
-	document.getElementById("restaurant").innerText = title;
-	document.getElementById("address").innerText = address;
-	document.getElementById("address").href = mapUrl;
+	const restaurantSubArr = restaurantListThatMatchesFilters();
+	
+	if (restaurantSubArr.length === 0)
+		document.getElementById("address").innerText = "The filters you selected didn't fit any stores in the area.";
+	else {
+		const randIndex = Math.floor(Math.random() * restaurantSubArr.length);
+		const title = restaurantSubArr[randIndex].restaurantTitle;
+		const address = restaurantSubArr[randIndex].address + ', Klamath Falls, OR'; // address Klamath Falls, OR
+		const encodedAddress = encodeURIComponent(address);					   // encoding address into readable URL for Google Maps
+		const mapUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodedAddress;
+		document.getElementById("restaurant").innerText = title;
+		document.getElementById("address").innerText = address;
+		document.getElementById("address").href = mapUrl;
+	}
 }
 
 // Function Name: restaurantIsOpen
@@ -122,13 +128,42 @@ function restaurantIsOpen(store) {
 		timeZone: "America/Los_Angeles"
 	}).format(d);
 	
-	document.getElementById("address").innerText = klamathFallsTime;
+	
 	
 	return isOpen;
 }
 
 function timeIsWithinWindow(currentTime, startTime, endTime) {
 	
+}
+
+function restaurantMatchesFilters(store) {
+	const containerDiv = document.getElementById("checkboxes");
+	const checkboxes = containerDiv.querySelectorAll('input[type="checkbox"]');
+	for (let i = 0; i < checkboxes.length; ++i) {
+		if (!checkboxes[i].checked)
+			continue; 
+		
+		var filterInGenre = false;
+		var filterInAtmosphere = false;
+		if (store.genre.includes(checkboxes[i].value))
+			filterInGenre = true;
+		else if (store.atmosphere.includes(checkboxes[i].value))
+			filterInAtmosphere = true;
+		
+		if (!filterInGenre && !filterInAtmosphere)
+			return false;
+	}
+	return true;
+}
+
+function restaurantListThatMatchesFilters() {
+	var subArr = [];
+	for (let i = 0; i < restaurants.length; ++i) {
+		if (restaurantMatchesFilters(restaurants[i]))
+			subArr.push(restaurants[i]);
+	}
+	return subArr;
 }
 
 /* MAIN */
