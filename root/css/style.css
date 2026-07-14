@@ -39,24 +39,6 @@ body:has(nav-bar.expanded) {
 	font-size: 20px;
 }
 
-@media screen and (max-width: 600px) {
-	.dialogue-container textarea { 
-		width: 280px    !important;
-		height: 100px   !important;
-	}
-	
-	.dialogue-container button {
-		width: 280px    !important;
-		height: 50px    !important;
-		font-size: 15px !important;
-	}
-	
-	.help-div img {
-		width: 280px  !important;
-		height: 150px !important;
-	}
-}
-
 .dialogue-container {
 	max-width:   100%;
 	margin-left: var(--navbar-width);
@@ -206,10 +188,6 @@ nav ul {
 	gap: 0.25rem;
 }
 
-nav li:last-child {
-	margin-top: auto;
-}
-
 nav a {
 	display: flex;
 	text-align: center;
@@ -256,3 +234,47 @@ nav-bar.expanded nav a span {
 	opacity: 1;
 	visibility: visible;
 }
+
+.checkbox-grid {
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
+
+/* MOBILE PHONE MODIFICATIONS */
+@media screen and (max-width: 600px) {
+	.dialogue-container textarea { 
+		width: 280px    !important;
+		height: 100px   !important;
+	}
+	
+	.dialogue-container button {
+		width: 280px    !important;
+		height: 50px    !important;
+		font-size: 15px !important;
+	}
+	
+	.help-div img {
+		width: 280px  !important;
+		height: 150px !important;
+	}
+	
+	#map {
+		width:  290px !important;
+		height: 190px !important;
+	}
+	
+	.rand-button {
+		width:  290px !important;
+		height: 70px !important;
+	}
+	
+	.container {
+		grid-template-columns: auto !important;
+		grid-template-rows: auto auto auto !important;
+	}
+	
+	.checkbox-grid {
+		grid-template-columns: auto auto;
+	}
+}
+/* !MOBILE PHONE MODIFICATIONS */
