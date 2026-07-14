@@ -112,6 +112,8 @@ function randomButtonLogic() {
 		document.getElementById("restaurant").innerText = title;
 		document.getElementById("address").innerText = address;
 		document.getElementById("address").href = mapUrl;
+		document.getElementById("Genre").innerText = restaurantSubArr[randIndex].foodType;
+		document.getElementById("Vibe").innerText = restaurantSubArr[randIndex].atmosphere;
 	}
 }
 
@@ -174,7 +176,7 @@ randButton.addEventListener("click", randomButtonLogic);
 try {
 	const response    = await initFetch(CONFIG.path);		 // async func to ensure path was correctly fetched
 	const linesOfText = await parseCSV(response); 		     // chunks the entire text into an array of lines of text
-	restaurants = instantiateRestaurants(linesOfText); // returns array of all restaurants
+	restaurants = instantiateRestaurants(linesOfText); 		 // returns array of all restaurants
 } catch (err) {
 	document.getElementById("restaurant").innerText = "There was an error processing the data of the restaurants... Sorry!";
 }
