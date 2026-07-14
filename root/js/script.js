@@ -128,35 +128,33 @@ function restaurantIsOpen(store) {
 		timeZone: "America/Los_Angeles"
 	}).format(d);
 	
-	
-	
 	return isOpen;
 }
 
-function timeIsWithinWindow(currentTime, startTime, endTime) {
-	
-}
-
+// Function Name: restaurantMatchesFilters
+// Parameters   : Selected restaurant in array (store: Restaurant)
+// Reason       : A check that ensures the selected restaurant contains at least one of these filters
 function restaurantMatchesFilters(store) {
 	const containerDiv = document.getElementById("checkboxes");
 	const checkboxes = containerDiv.querySelectorAll('input[type="checkbox"]');
+	
+	let hasCheckedFilters = false;
+	
 	for (let i = 0; i < checkboxes.length; ++i) {
 		if (!checkboxes[i].checked)
 			continue; 
 		
-		var filterInGenre = false;
-		var filterInAtmosphere = false;
-		if (store.foodType.includes(checkboxes[i].value))
-			filterInGenre = true;
-		else if (store.atmosphere.includes(checkboxes[i].value))
-			filterInAtmosphere = true;
+		hasCheckedFilters = true;
 		
-		if (!filterInGenre && !filterInAtmosphere)
-			return false;
+		if (store.foodType.includes(checkboxes[i].value) || store.atmosphere.includes(checkboxes[i].value))
+			return true;
 	}
-	return true;
+	return !hasCheckedFilters;
 }
 
+// Function Name: restaurantListThatMatchesFilters
+// Parameters   : None
+// Reason       : A for loop that creates a subarray of valid stores
 function restaurantListThatMatchesFilters() {
 	var subArr = [];
 	for (let i = 0; i < restaurants.length; ++i) {
@@ -172,7 +170,7 @@ instantiateMap();
 
 const randButton = document.getElementById("randomButton");
 randButton.addEventListener("click", randomButtonLogic);
-restaurantIsOpen("bob");
+
 try {
 	const response    = await initFetch(CONFIG.path);		 // async func to ensure path was correctly fetched
 	const linesOfText = await parseCSV(response); 		     // chunks the entire text into an array of lines of text
