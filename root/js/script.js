@@ -146,7 +146,7 @@ function restaurantMatchesFilters(store) {
 		
 		var filterInGenre = false;
 		var filterInAtmosphere = false;
-		if (store.genre.includes(checkboxes[i].value))
+		if (store.foodType.includes(checkboxes[i].value))
 			filterInGenre = true;
 		else if (store.atmosphere.includes(checkboxes[i].value))
 			filterInAtmosphere = true;
